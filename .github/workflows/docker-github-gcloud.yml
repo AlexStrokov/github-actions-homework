@@ -1,0 +1,17 @@
+name: docker-github-gcloud
+
+on: 
+  push:
+    branches:  
+      - master
+
+jobs: 
+  build: 
+
+    runs-on: python
+
+    steps:
+    - name: Build the Docker image
+    - uses: actions/checkout@v2
+
+      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
